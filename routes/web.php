@@ -23,3 +23,7 @@ Route::resource('post','App\Http\Controllers\PostController');
 //Route::get('/post/{post}',[PostController::Class,'show']);
 //Route::get('/post/{post}/edit',[PostController::Class,'edit']);
 //Route::patch('/post/{post}',[PostController::Class,'update']);
+
+Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
+    return view('dashboard');
+})->name('dashboard');

@@ -3,7 +3,7 @@
     <head>
     </head>
     <body>
-      <form method="POST" action="/post/{{$post->id}}">
+      <form method="POST" action="/post/{{$post->id}}" enctype="multipart/form-data">
       {{method_field('PATCH')}}
         @csrf
         <div>
@@ -12,6 +12,12 @@
 
         <div>
           <textarea name="description" placeholder="description">{{$post->description}}</textarea>
+        </div>
+        <div>
+          <img src="{{asset('/storage/images/' . $post->image)}}" alt="image">
+          <input type="file" name="image">
+        </div>
+
         <div>
           <button type="submit">Edit post</button>
         </div>
